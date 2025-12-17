@@ -461,6 +461,132 @@ Structured data for:
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
+## Projects & Certificates (Optional Sections)
+
+This template supports optional Projects and Certificates sections that are managed through JSON files. These sections are automatically enabled when their corresponding JSON files exist, and hidden from navigation when they don't.
+
+### How It Works
+
+- **Projects**: Create `data/projects.json` to enable the Projects page
+- **Certificates**: Create `data/certificates.json` to enable the Certificates page
+
+When a JSON file exists, the corresponding navigation link automatically appears in the header. When removed, the link disappears and the page returns a 404.
+
+### Setting Up Projects
+
+1. **Create the data directory** (if it doesn't exist):
+
+```bash
+mkdir -p data
+```
+
+2. **Create `data/projects.json`**:
+
+```json
+[
+  {
+    "id": "my-project",
+    "title": "My Awesome Project",
+    "description": "A brief description of what this project does and the problems it solves.",
+    "image": "/images/projects/my-project.jpg",
+    "tags": ["Next.js", "TypeScript", "Tailwind"],
+    "date": "2024",
+    "link": "https://github.com/username/my-project"
+  }
+]
+```
+
+3. **Add project images** to `public/images/projects/`
+
+### Setting Up Certificates
+
+1. **Create `data/certificates.json`**:
+
+```json
+[
+  {
+    "id": "my-cert",
+    "title": "Professional Certification Name",
+    "description": "Description of the certification and what skills it validates.",
+    "image": "/images/certificates/my-cert.jpg",
+    "issuer": "Issuing Organization",
+    "date": "2024-06",
+    "link": "https://www.credly.com/badges/xxx"
+  }
+]
+```
+
+2. **Add certificate images** to `public/images/certificates/`
+
+### JSON Schema
+
+#### Project Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `id` | string | Yes | Unique identifier for the project |
+| `title` | string | Yes | Project name |
+| `description` | string | Yes | Brief description (recommended < 160 chars) |
+| `image` | string | Yes | Cover image path |
+| `tags` | string[] | No | Technology stack or categories |
+| `date` | string | No | Project date/year (e.g., "2024" or "2024-06") |
+| `link` | string | No | External URL (GitHub, live demo, etc.) |
+
+#### Certificate Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `id` | string | Yes | Unique identifier for the certificate |
+| `title` | string | Yes | Certificate name |
+| `description` | string | Yes | Brief description |
+| `image` | string | Yes | Cover image path |
+| `issuer` | string | No | Issuing organization |
+| `date` | string | No | Date received (e.g., "2024-06") |
+| `link` | string | No | Verification URL (Credly, Coursera, etc.) |
+
+### Link Behavior
+
+- **With link**: Clicking the card opens the link in a new tab
+- **Without link**: Clicking shows an alert message indicating the link will be added later
+
+This allows you to add projects or certificates as placeholders before you have public links available.
+
+### Example Files
+
+Example JSON files are provided for reference:
+
+- `data/certificates.example.json`
+- `data/projects.example.json`
+
+To use them, simply rename or copy:
+
+```bash
+cp data/projects.example.json data/projects.json
+cp data/certificates.example.json data/certificates.json
+```
+
+### Disabling Sections
+
+To disable a section, simply delete or rename its JSON file:
+
+```bash
+# Disable projects
+mv data/projects.json data/projects.json.bak
+
+# Disable certificates  
+rm data/certificates.json
+```
+
+The navigation will automatically update on the next build/reload.
+
+### Image Recommendations
+
+- **Format**: JPG, PNG, or WebP
+- **Size**: 1200x630px (same as OG images) for best results
+- **Location**: 
+  - Projects: `public/images/projects/`
+  - Certificates: `public/images/certificates/`
+
 ## License
 
 MIT License - feel free to use this template for any purpose.

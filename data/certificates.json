@@ -1,0 +1,20 @@
+[
+  {
+    "id": "example-cert-1",
+    "title": "AWS Solutions Architect Associate",
+    "description": "Amazon Web Services cloud architecture certification covering compute, storage, networking, and security services.",
+    "image": "/images/certificates/aws-saa.jpg",
+    "issuer": "Amazon Web Services",
+    "date": "2024-06",
+    "link": "https://www.credly.com/badges/example"
+  },
+  {
+    "id": "example-cert-2",
+    "title": "Google Cloud Professional Data Engineer",
+    "description": "Professional certification for designing and building data processing systems on Google Cloud Platform.",
+    "image": "/images/certificates/gcp-de.jpg",
+    "issuer": "Google Cloud",
+    "date": "2024-03",
+    "link": ""
+  }
+]

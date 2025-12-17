@@ -7,7 +7,7 @@ export async function GET() {
 
   const rssItems = posts
     .map((post) => {
-      const author = getAuthor(post.author)
+      const author = getAuthor(post.authors?.[0] || "")
       return `
       <item>
         <title><![CDATA[${post.title}]]></title>

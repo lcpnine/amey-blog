@@ -4,7 +4,16 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import config from "../blog.config"
 
-export default function Header() {
+interface NavItem {
+  label: string
+  href: string
+}
+
+interface HeaderProps {
+  navigationItems?: NavItem[]
+}
+
+export default function Header({ navigationItems }: HeaderProps) {
   const [isDark, setIsDark] = useState(() => {
     if (typeof window !== "undefined") {
       const savedTheme = localStorage.getItem("theme")
@@ -24,6 +33,9 @@ export default function Header() {
 
   const toggleTheme = () => setIsDark(!isDark)
 
+  // Use provided navigation items or fall back to config
+  const navItems = navigationItems || config.nav
+
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--color-border)] bg-[var(--color-bg)]/80 backdrop-blur-sm">
       <nav className="mx-auto flex max-w-4xl items-center justify-between px-4 py-4">
@@ -36,7 +48,7 @@ export default function Header() {
 
         <div className="flex items-center gap-6">
           <ul className="flex items-center gap-6">
-            {config.nav.map((item: { href: string; label: string }) => (
+            {navItems.map((item: NavItem) => (
               <li key={item.href}>
                 <Link
                   href={item.href}

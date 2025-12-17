@@ -3,6 +3,7 @@ import { Inter } from "next/font/google"
 import config from "../blog.config"
 import Footer from "../components/Footer"
 import Header from "../components/Header"
+import { getNavigationItems } from "../lib/navigation"
 import { generateWebsiteSchema } from "../lib/seo"
 import "./globals.css"
 
@@ -44,6 +45,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   const websiteSchema = generateWebsiteSchema()
+  const navigationItems = getNavigationItems()
 
   return (
     <html lang={config.site.language} suppressHydrationWarning>
@@ -58,7 +60,7 @@ export default function RootLayout({
           Skip to main content
         </a>
         <div className="flex min-h-screen flex-col">
-          <Header />
+          <Header navigationItems={navigationItems} />
           <main id="main-content" className="flex-1">
             {children}
           </main>

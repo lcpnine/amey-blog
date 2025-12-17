@@ -35,6 +35,26 @@ export interface Post extends PostFrontmatter {
   authors: string[]
 }
 
+export interface Certificate {
+  id: string
+  title: string
+  description: string
+  image: string
+  issuer?: string
+  date?: string
+  link?: string
+}
+
+export interface Project {
+  id: string
+  title: string
+  description: string
+  image: string
+  tags?: string[]
+  date?: string
+  link?: string
+}
+
 export interface BlogConfig {
   site: {
     title: string
