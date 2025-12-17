@@ -3,7 +3,7 @@ import { BlogConfig } from "./lib/types"
 const config: BlogConfig = {
   // Site metadata
   site: {
-    title: "Amey Pathank",
+    title: "Amey Pathak",
     description: "Security Researcher",
     url: "https://amey.pathak.me",
     language: "en",
