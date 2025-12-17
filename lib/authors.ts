@@ -26,8 +26,32 @@ const authors: Record<string, Author> = {
   // Add more authors here
 }
 
+// Alias mapping for easier lookup (case-insensitive)
+const authorAliases: Record<string, string> = {
+  john: "john-doe",
+  "john doe": "john-doe",
+  johndoe: "john-doe",
+  doe: "john-doe",
+}
+
 export function getAuthor(id: string): Author | undefined {
-  return authors[id]
+  if (!id) return undefined
+
+  // Normalize the input
+  const normalizedId = id.toLowerCase().trim()
+
+  // Try direct lookup first
+  if (authors[normalizedId]) {
+    return authors[normalizedId]
+  }
+
+  // Try alias lookup
+  const aliasedId = authorAliases[normalizedId]
+  if (aliasedId && authors[aliasedId]) {
+    return authors[aliasedId]
+  }
+
+  return undefined
 }
 
 export function getAllAuthors(): Author[] {
