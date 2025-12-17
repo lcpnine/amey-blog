@@ -3,15 +3,15 @@ import { BlogConfig } from "./lib/types"
 const config: BlogConfig = {
   // Site metadata
   site: {
-    title: "My Blog",
-    description: "A blog about technology, programming, and life",
-    url: "https://yourdomain.com", // Change this to your domain
+    title: "Amey Pathank",
+    description: "Security Researcher",
+    url: "https://amey.pathak.me",
     language: "en",
     locale: "en_US",
   },
 
   // Default author (used when post doesn't specify an author)
-  defaultAuthor: "john-doe",
+  defaultAuthor: "amey-pathak",
 
   // Navigation links
   nav: [
@@ -22,9 +22,9 @@ const config: BlogConfig = {
 
   // Social links (used in footer and author profiles)
   social: {
-    twitter: "yourusername",
-    github: "yourusername",
-    linkedin: "yourusername",
+    twitter: "ap425q",
+    github: "ap425q",
+    linkedin: "amey-pathak",
   },
 
   // Giscus configuration for comments
@@ -50,7 +50,7 @@ const config: BlogConfig = {
     comments: true,
     darkMode: true,
     search: false, // Future feature
-    rss: true,
+    rss: false,
   },
 }
 
